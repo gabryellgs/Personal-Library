@@ -7,11 +7,27 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Biblioteca Pessoal</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel="stylesheet"  type="text/css" href="{% static 'css/estiloTP.css' %}"> 
-  <script src='main.js'></script>
-
+  <link rel="stylesheet"  type="text/css" href="{% static 'estiloTP.css' %}"> 
 </head>
 <body>
-  <h1>aaaaaaaaaaaaaa</h1>
+  <div class="container">
+    <div class="ap">
+      <h1>Biblioteca Pessoal</h1>
+    </div>
+    <div class="cadas">
+      <a href=""> cadatrar</a>
+    </div>
+    <div class="biblio">
+
+        <p>Lista de livros</p>
+
+
+        {% for cont  in Livro %}
+          <p>Livros{{Livro.titulo}}</p>
+        {% empty %}
+        <p>Não existe livros cadastrados</p>
+        {% endfor %}
+    </div>
+  </div>
 </body>
 </html>
