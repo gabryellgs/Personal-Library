@@ -21,6 +21,8 @@
        <p>Livros</p>
        {% for livro in Livros %}
         <p>Título:{{livro.titulo}}     Status:{{livro.status}}</p>
+       {% empty %}
+        <p>Não existem Livros Cadastrados</p>
        {% endfor %}
     </div>
   </div>
