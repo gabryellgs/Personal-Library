@@ -18,7 +18,10 @@
       <a href=""> cadatrar</a>
     </div>
     <div class="biblio">
-       
+       <p>Livros</p>
+       {% for livro in Livros %}
+        <p>Título:{{livro.titulo}}     Status:{{livro.status}}</p>
+       {% endfor %}
     </div>
   </div>
 </body>

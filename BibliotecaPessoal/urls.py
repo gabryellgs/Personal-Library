@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from core.views import telaP
+from core.views import telaPrincipal
 
 urlpatterns = [
-    path('telaP/',telaP, name='telaP' ),
+    path('telaPrincipal/',telaPrincipal, name='telaPrincipal' ),
     path('admin/', admin.site.urls),
 ]

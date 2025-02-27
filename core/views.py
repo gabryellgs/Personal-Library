@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from .models import livro
 
 
-def telaP(request):
-  livros = livro.objects.all()
+def telaPrincipal(request):
+  livrinhos = livro.objects.all()
   contex = {
-    'Livro' : livros
+    'Livros' : livrinhos
   }
+
   return render(request,'telaPrincipal.html', contex)
