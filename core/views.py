@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import livro
+from .forms import LivroForm
 
 
 def telaPrincipal(request):
@@ -9,3 +10,11 @@ def telaPrincipal(request):
   }
 
   return render(request,'telaPrincipal.html', contex)
+
+
+def telaCadastro(request):
+  formulario = LivroForm(request.POST or None)
+  contexto = {
+    'form_livro': formulario
+  }
+  return render(request,'telaCadastro.html', contexto)
