@@ -2,14 +2,37 @@ from django.shortcuts import render, redirect
 from .models import livro
 from .forms import LivroForm
 
-
+# função para listar livros
 def telaPrincipal(request):
+
+  # LISTAGEM
+  #Variável guardando todos os objetos de livro
   livrinhos = livro.objects.all()
+
+  
+
+  # CADASTRO
+  #Variável para guardar fomulário
+  formulario = LivroForm(request.POST or None)
+
+  # validação do formulário
+  if formulario.is_valid():
+    formulario.save()
+    return redirect('telaPrincipal')
+
+
+  # contexto
   contex = {
-    'Livros' : livrinhos
+    # LISTAGEM
+    'Livros' : livrinhos,
+    # CADASTRO
+    'form_livro': formulario,
   }
 
+  # retorno para o html
   return render(request,'telaPrincipal.html', contex)
+
+
 
 
 def telaCadastro(request):
