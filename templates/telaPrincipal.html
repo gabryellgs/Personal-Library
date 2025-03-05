@@ -15,7 +15,17 @@
       <h1>Biblioteca Pessoal</h1>
     </div>
     <div class="cadas">
-      <a href="{% url 'telaCadastro' %}"> cadatrar</a>
+      <!-- <a href="{% url 'telaCadastro' %}"> cadatrar</a> -->
+      <form method="POST" class="formula">
+        {% csrf_token %}
+        {{ form_livro.as_table }}
+        <!-- separando botão para estilizar separadamente -->
+        <div class="butao">
+          <p>
+            <input type="submit" value="cadastrar"/>
+          </p>
+        </div>
+      </form>
     </div>
     <div class="biblio">
        <p>
