@@ -23,3 +23,21 @@ def telaCadastro(request):
     'form_livro': formulario
   }
   return render(request,'telaCadastro.html', contexto)
+
+
+
+def telaEditar(request, id):
+
+  blivro = livro.objects.get(pk=id)
+
+  formBusca = LivroForm(request.POST or None, instance=blivro) 
+
+  if formBusca.is_valid():
+    formBusca.save()
+    return redirect('telaPrincipal')
+  
+  contexto = {
+    'form_livro': formBusca
+  }
+
+  return render(request, 'telaCadastro.html', contexto )

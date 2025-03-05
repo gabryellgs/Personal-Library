@@ -20,9 +20,15 @@
     <div class="biblio">
        <p>Livros</p>
        {% for livro in Livros %}
-        <p>Título:{{livro.titulo}}     Status:{{livro.status}}</p>
+        <p>
+          Título:{{livro.titulo}}     
+          Status:{{livro.status}}
+          <a href="{% url 'telaEditar' livro.id %}">Editar</a>
+        </p>
        {% empty %}
-        <p>Não existem Livros Cadastrados</p>
+        <p>
+          Não existem Livros Cadastrados
+        </p>
        {% endfor %}
     </div>
   </div>
