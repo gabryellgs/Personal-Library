@@ -4,6 +4,6 @@ from core.views import telaPrincipal, telaCadastro
 
 urlpatterns = [
     path('telaPrincipal/',telaPrincipal, name='telaPrincipal' ),
-    path('telaCadastro/', telaCadastro, name='telacadastro'),
+    path('telaCadastro/', telaCadastro, name='telaCadastro'),
     path('admin/', admin.site.urls),
 ]

@@ -14,6 +14,11 @@ def telaPrincipal(request):
 
 def telaCadastro(request):
   formulario = LivroForm(request.POST or None)
+
+  if formulario.is_valid():
+    formulario.save()
+    return redirect('telaPrincipal')
+
   contexto = {
     'form_livro': formulario
   }
