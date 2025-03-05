@@ -18,12 +18,15 @@
       <a href="{% url 'telaCadastro' %}"> cadatrar</a>
     </div>
     <div class="biblio">
-       <p>Livros</p>
+       <p>
+          Livros
+       </p>
        {% for livro in Livros %}
-        <p>
+        <p class="">
           Título:{{livro.titulo}}     
           Status:{{livro.status}}
-          <a href="{% url 'telaEditar' livro.id %}">Editar</a>
+          | <a href="{% url 'telaEditar' livro.id %}"> Editar</a>
+          | <a href="{% url 'telaRemover' livro.id %}">Remover</a>
         </p>
        {% empty %}
         <p>

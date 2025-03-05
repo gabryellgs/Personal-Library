@@ -30,14 +30,20 @@ def telaEditar(request, id):
 
   blivro = livro.objects.get(pk=id)
 
-  formBusca = LivroForm(request.POST or None, instance=blivro) 
+  formEditar = LivroForm(request.POST or None, instance=blivro) 
 
-  if formBusca.is_valid():
-    formBusca.save()
+  if formEditar.is_valid():
+    formEditar.save()
     return redirect('telaPrincipal')
   
   contexto = {
-    'form_livro': formBusca
+    'form_livro': formEditar
   }
 
   return render(request, 'telaCadastro.html', contexto )
+
+# função de remover curso
+def telaRemover(request, id):
+  Removlivro = livro.objects.get(pk=id)
+  Removlivro.delete()
+  return redirect('telaPrincipal')
