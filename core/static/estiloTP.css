@@ -1,23 +1,29 @@
 body {
-  
-  height: 100vh; 
-  margin: 0; 
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background: linear-gradient(55deg, violet, blue, darkblue); 
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(55deg, violet, blue, darkblue);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .container {
-  background-color: white;
-  padding: 20px;
+  background-color: rgba(147, 58, 255, 0.8); /* Adicionei transparência */
+  width: 700px;
+  height: 870px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centraliza o texto dentro */
 }
 
 h1 {
-  text-align: center;
-  color: rgb(0, 0, 0);
+  color: white; /* Cor do texto branca */
   font-family: Arial, sans-serif;
+  margin: 10px;
+  padding: 5px;
 }
 
 a {
@@ -27,14 +33,31 @@ a {
   border-radius: 20px;
   border: 1px solid black;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 60px;
   text-decoration: none;
   outline: none;
   transition: all 0.3s ease;
 }
 
 a:hover {
-  transition: 0.10s;
-  background: linear-gradient(45deg, blue, violet,rgb(63, 63, 112, rgb(100, 6, 100)));
-  color: rgb(0, 0, 0);
+  background: linear-gradient(45deg, blue, violet, rgb(63, 63, 112));
+  color: rgb(181, 180, 181);
 }
+.ap{
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding: 15px;
+
+}
+
+.cadas{
+
+}
+
+.biblio{
+  font-size: 16px;
+  font-weight: bold;
+}
+
