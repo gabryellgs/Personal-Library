@@ -1,5 +1,4 @@
 body {
-  height: 100vh;
   margin: 0;
   background: linear-gradient(55deg, violet, blue, darkblue);
   background-size: cover;
@@ -13,7 +12,7 @@ body {
 .container {
   background-color: rgba(147, 58, 255, 0.8); /* Adicionei transparência */
   width: 700px;
-  height: 870px;
+ 
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center; /* Centraliza o texto dentro */
@@ -43,18 +42,7 @@ a:hover {
   background: linear-gradient(45deg, blue, violet, rgb(63, 63, 112));
   color: rgb(181, 180, 181);
 }
-.ap{
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  padding: 15px;
 
-}
-
-.cadas{
-
-}
 
 .biblio{
   font-size: 16px;
