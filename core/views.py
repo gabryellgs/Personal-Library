@@ -1,8 +1,60 @@
 from django.shortcuts import render, redirect
 from .models import livro
 from .forms import LivroForm
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .serializers import Livroserializers
 
-# função para listar livros
+
+
+
+# api
+# API DE LISTAR
+@api_view(['GET'])
+def livroAPIlistar(request):
+    livros = livro.objects.all()
+    livros_serializers = Livroserializers(livros, many=True)
+    return Response(livros_serializers.data)
+
+
+# API DE CADASTRO
+@api_view(['PUT'])
+def livroAPIadicionar(request):
+    livrinhos =Livroserializers(data=request.data)
+    if livrinhos.is_valid():
+        livrinhos.save()
+        return Response(livrinhos.data,status=status.HTTP_201_CREATED)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+# API PARA ATUALIZAR
+# @api_view(['POST'])
+# def areaAPIatualizar(request, id):
+#     area_bd = Area.objects.get(id=id)
+#     area = Livroserializers(data=request.data, instance=area_bd)
+#     if area.is_valid():
+#         area.save()
+#         return Response(area.data, status=status.HTTP_202_ACCEPTED)
+#     else:
+#         return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+# API PARA DELETAR
+# @api_view(['DELETE'])
+# def areaAPIremover(request,id):
+#     area_bd = Area.objects.get(id=id)
+#     if(area_bd):
+#         area_bd.delete()
+#         return Response(status=status.HTTP_202_ACCEPTED)
+#     else:
+#         return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+
+
+# função para chamar tela principal
 def telaPrincipal(request):
 
   # LISTAGEM
@@ -48,7 +100,7 @@ def telaCadastro(request):
   return render(request,'telaCadastro.html', contexto)
 
 
-
+#função de editar curso
 def telaEditar(request, id):
 
   blivro = livro.objects.get(pk=id)
@@ -64,6 +116,7 @@ def telaEditar(request, id):
   }
 
   return render(request, 'telaCadastro.html', contexto )
+
 
 # função de remover curso
 def telaRemover(request, id):
