@@ -30,26 +30,26 @@ def livroAPIadicionar(request):
 
 
 # API PARA ATUALIZAR
-# @api_view(['POST'])
-# def areaAPIatualizar(request, id):
-#     area_bd = Area.objects.get(id=id)
-#     area = Livroserializers(data=request.data, instance=area_bd)
-#     if area.is_valid():
-#         area.save()
-#         return Response(area.data, status=status.HTTP_202_ACCEPTED)
-#     else:
-#         return Response(status=status.HTTP_404_NOT_FOUND)
+@api_view(['POST'])
+def livroAPIatualizar(request, id):
+    livro_bd = livro.objects.get(id=id)
+    livru = Livroserializers(data=request.data, instance=livro_bd)
+    if livru.is_valid():
+        livru.save()
+        return Response(livru.data, status=status.HTTP_202_ACCEPTED)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 # API PARA DELETAR
-# @api_view(['DELETE'])
-# def areaAPIremover(request,id):
-#     area_bd = Area.objects.get(id=id)
-#     if(area_bd):
-#         area_bd.delete()
-#         return Response(status=status.HTTP_202_ACCEPTED)
-#     else:
-#         return Response(status=status.HTTP_404_NOT_FOUND)
+@api_view(['DELETE'])
+def livroAPIremover(request,id):
+    livru_bd = livro.objects.get(id=id)
+    if(livru_bd):
+        livru_bd.delete()
+        return Response(status=status.HTTP_202_ACCEPTED)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 
