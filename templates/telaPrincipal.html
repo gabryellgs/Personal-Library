@@ -8,12 +8,18 @@
   <title>Biblioteca Pessoal</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel="stylesheet"  type="text/css" href="{% static 'estiloTP.css' %}"> 
+  <link rel="icon" type="image/x-icon" href="{% static 'Logo_Branca.png' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="container">
     <div class="ap">
-      <h1>Biblioteca Pessoal</h1>
+      <img src="{% static 'Logo_Branca.png' %}"/>
+      <h1>BIBLIOTECA PESSOAL</h1>
     </div>
     <div class="cadas">
       <!-- <a href="{% url 'telaCadastro' %}"> cadatrar</a> -->
@@ -22,16 +28,40 @@
         {{ form_livro.as_table }}
         <!-- separando botão para estilizar separadamente -->
         <div class="butao">
-          <p>
-            <input type="submit" value="cadastrar"/>
-          </p>
+            <button type="submit">Cadastrar</button>
         </div>
       </form>
     </div>
+    
     <div class="biblio">
-       <p>
-          Livros
-       </p>
+      {% if Livros %}
+        <table >
+          <thead>
+            <tr>
+              <th>Livro</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {% for livro in Livros %}
+              <tr class="trtr">
+                <td class="mode">{{ livro.titulo }}</td>
+                <td class="mode">{{ livro.status }}</td>
+                <td>
+                  <a href="{% url 'telaEditar' livro.id %}"><i class="fa-solid fa-pen-to-square"></i></a> |
+                  <a href="{% url 'telaRemover' livro.id %}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p class="semlivro">Não existem Livros Cadastrados</p>
+      {% endif %}
+    </div>
+    <!-- <div class="biblio">
+      
        {% for livro in Livros %}
         <p class="">
           Título:{{livro.titulo}}     
@@ -44,7 +74,7 @@
           Não existem Livros Cadastrados
         </p>
        {% endfor %}
-    </div>
+    </div> -->
   </div>
 </body>
 </html>
