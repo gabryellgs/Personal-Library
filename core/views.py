@@ -19,9 +19,9 @@ def livroAPIlistar(request):
 
 
 # API DE CADASTRO
-@api_view(['PUT'])
+@api_view(['POST'])
 def livroAPIadicionar(request):
-    livrinhos =Livroserializers(data=request.data)
+    livrinhos = Livroserializers(data=request.data)
     if livrinhos.is_valid():
         livrinhos.save()
         return Response(livrinhos.data,status=status.HTTP_201_CREATED)
@@ -29,8 +29,9 @@ def livroAPIadicionar(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
+
 # API PARA ATUALIZAR
-@api_view(['POST'])
+@api_view(['PUT'])
 def livroAPIatualizar(request, id):
     livro_bd = livro.objects.get(id=id)
     livru = Livroserializers(data=request.data, instance=livro_bd)
@@ -71,6 +72,7 @@ def telaPrincipal(request):
   if formulario.is_valid():
     formulario.save()
     return redirect('telaPrincipal')
+
 
 
   # contexto
