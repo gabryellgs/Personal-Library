@@ -29,25 +29,16 @@ def livroAPIadicionar(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-# @api_view(['POST'])
-# def livroAPIadicionar(request):
-#     livros = Livroserializers(data=request.data)
-#     if livros.is_valid():
-#         livros.save()
-#         return Response({'message': 'Nota criada com sucesso!'}, status=status.HTTP_201_CREATED)
-#     return Response(livros.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 
 # API PARA EDITAR
 @api_view(['PUT'])
 def livroAPIeditar(request, id):
     try:
-        livro_bd = livro.objects.get(id=id)  # Verifique se o livro com o ID existe
+        livro_bd = livro.objects.get(id=id)  
     except livro.DoesNotExist:
         return Response({'message': 'Livro não encontrado'}, status=status.HTTP_404_NOT_FOUND)
     
-    print("Recebido:", request.data)  # 👀 Verificar o que está chegando
+    print("Recebido:", request.data)  # Verificar o que está chegando
     livru = Livroserializers(instance=livro_bd, data=request.data)
 
     # Atualiza os dados do livro
@@ -56,7 +47,7 @@ def livroAPIeditar(request, id):
         livru.save()
         return Response(livru.data, status=status.HTTP_202_ACCEPTED)
     else:
-        print("Erros do Serializer:", livru.errors)  # 👀 Verificar erro no terminal
+        print("Erros do Serializer:", livru.errors)  # Verificar erro no terminal
         return Response(livru.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
