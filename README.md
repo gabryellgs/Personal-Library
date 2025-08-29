@@ -13,7 +13,7 @@ e desejase mapear para ter um melhor controle. ademais, esse foi o projeto, algo
 ### Colaboradores
 
 [Suanderson Santos](https://github.com/Suanderson)  
-[Pedro Henrique](https://github.com/Henrriks)
+[Pedro Henrique](https://github.com/Henrriks)  
 [José Guilherme](https://github.com/JGuilhermeSneto)  
 [Gabryell Gonçalves](https://github.com/gabryellgs)  
 [Junior Nascimento](https://github.com/JuniorNascimento2)  
