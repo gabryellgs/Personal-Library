@@ -8,7 +8,7 @@ e desejase mapear para ter um melhor controle. ademais, esse foi o projeto, algo
 ### Desafios
 - conexão da API do django com o React: com poucas aulas para finalização do projeto foi preciso realizar inúmeras "Gambiaras" para o sistema rodar.
 - falta de conhecimento do React: devido ser algo novo e com tão pouco tempo para aprender, acabou ficando uma grande lacuna de conhecimento, limitando tudo oque fossemos fazer.
-- estilização em CSS no Django: essa parte, nos forçou a realizar inúmeras pesquisas de última hora, para fazer o **static** funcionar, mas a maior dificuldade foi estilizar os formulários prontos que o Dajngo oferece.
+- estilização em CSS no Django: essa parte, nos forçou a realizar inúmeras pesquisas de última hora, para fazer o **static** funcionar, mas a maior dificuldade foi estilizar os formulários prontos que o Django oferece.
 
 ### Colaboradores
 
